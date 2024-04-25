@@ -537,7 +537,7 @@ static void MergeNodes(JSONStructureNode &merged, const JSONStructureNode &node,
 			for (const auto &child_desc : desc.children) {
 				yyjson_val key {};
 				yyjson_set_strn(&key, child_desc.key->c_str(), child_desc.key->length());
-				auto &merged_child = merged_description.GetOrCreateChild(&key, nullptr);
+				auto &merged_child = merged_description.GetOrCreateChild(&key, nullptr, false);
 				MergeNodes(merged_child, child_desc, max_depth, depth + 1);
 			}
 			break;
